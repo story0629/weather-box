@@ -28,12 +28,12 @@ label
   
 .daybox
   width: 90%
-  max-width: 400px
+  max-width: 420px
   box-shadow: 0px 0px 20px rgba(black,0.4)
   cursor: pointer
   &:hover
     .bottom
-      height: 80px
+      height: 100px
     .dayweather
       position: relative
       opacity: 1
@@ -58,7 +58,7 @@ label
     border-radius: 50%
     box-shadow: 15px -15px #000
     position: absolute
-    top: 110px
+    top: 90px
     left: 50px
     animation: moonmove 20s infinite
   @keyframes moonmove
@@ -68,10 +68,10 @@ label
     to
       box-shadow: -30px 30px $color_yellow
       transform: translate(30px,-30px)
-  .cloud
+  .cloudrain
     +size(100px,36px)
     position: absolute
-    left: 200px
+    left: 250px
     bottom: 50px
     border-radius: 20px
     animation: clouddrift 4s infinite
@@ -119,18 +119,29 @@ label
       100%
         transform: translateY(50px)
         opacity: 0
+  .sun
+    position: absolute
+    stroke: rgba($color_yellow,0.4)
+    stroke-width: 15px
+    stroke-dasharray: 2px
+    fill: $color_yellow
+    animation: clouddrift 4s infinite
+  .sun2
+    stroke-width: 10px
   .temsvg
     width: 100%
-    polyline
+    polyline,line
       fill: none
       stroke: $color_white
-      stroke-width: 1px
+      stroke-width: 2px
       opacity: 0.2
     text
-      transform: translate(10px,20px)
+      transform: translateY(-22px)
       font-size: 12px
       fill: $color_white
       opacity: 0
+    text:nth-of-type(7)
+      transform: translateX(-30px)translateY(-22px)
     circle
       fill: $color_white
       opacity: 0.2
@@ -168,7 +179,7 @@ label
     transition: all 0.5s
     h3
       font-size: 8px
-      padding: 10px 0
+      // padding: 5px 0
       color: rgba($color_black,0.7)
       letter-spacing: 1px
       font-weight: 400
@@ -195,7 +206,7 @@ label
     opacity: 0.5
     transition: all 0.5s
   .temsvg
-    circle,polyline,text
+    circle,polyline,line,text
       opacity: 1
       transition: all 0.5s
     polyline

@@ -7,12 +7,15 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
@@ -23,11 +26,12 @@ label {
 
 .daybox {
   width: 90%;
-  max-width: 400px;
+  max-width: 420px;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   cursor: pointer; }
   .daybox:hover .bottom {
-    height: 80px; }
+    height: 100px; }
   .daybox:hover .dayweather {
     position: relative;
     opacity: 1;
@@ -36,6 +40,8 @@ label {
 .top {
   height: 330px;
   position: relative;
+  background: -webkit-linear-gradient(70deg, #19283D, #1D678F);
+  background: -o-linear-gradient(70deg, #19283D, #1D678F);
   background: linear-gradient(20deg, #19283D, #1D678F);
   background-color: #f3f3f3;
   background-size: 100% 300%;
@@ -58,44 +64,50 @@ label {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    -webkit-box-shadow: 15px -15px #000;
     box-shadow: 15px -15px #000;
     position: absolute;
-    top: 110px;
+    top: 90px;
     left: 50px;
     -webkit-animation: moonmove 20s infinite;
     animation: moonmove 20s infinite; }
 
 @-webkit-keyframes moonmove {
   from {
+    -webkit-box-shadow: 15px -15px #FFD633;
     box-shadow: 15px -15px #FFD633;
     -webkit-transform: translate(-15px, 15px);
     transform: translate(-15px, 15px); }
   to {
+    -webkit-box-shadow: -30px 30px #FFD633;
     box-shadow: -30px 30px #FFD633;
     -webkit-transform: translate(30px, -30px);
     transform: translate(30px, -30px); } }
 
 @keyframes moonmove {
   from {
+    -webkit-box-shadow: 15px -15px #FFD633;
     box-shadow: 15px -15px #FFD633;
     -webkit-transform: translate(-15px, 15px);
     transform: translate(-15px, 15px); }
   to {
+    -webkit-box-shadow: -30px 30px #FFD633;
     box-shadow: -30px 30px #FFD633;
     -webkit-transform: translate(30px, -30px);
     transform: translate(30px, -30px); } }
-  .top .cloud {
+  .top .cloudrain {
     width: 100px;
     height: 36px;
     position: absolute;
-    left: 200px;
+    left: 250px;
     bottom: 50px;
     border-radius: 20px;
     -webkit-animation: clouddrift 4s infinite;
     animation: clouddrift 4s infinite;
     background-color: #f3f3f3;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); }
-    .top .cloud:before, .top .cloud:after {
+    .top .cloudrain:before, .top .cloudrain:after {
       content: "";
       display: block;
       background-color: #f3f3f3;
@@ -103,10 +115,10 @@ label {
       height: 50px;
       border-radius: 50%;
       position: absolute; }
-    .top .cloud:before {
+    .top .cloudrain:before {
       top: -33px;
       left: 10px; }
-    .top .cloud:after {
+    .top .cloudrain:after {
       top: -25px;
       left: 30px; }
 
@@ -129,7 +141,7 @@ label {
     transform: translateY(-10px); }
   100% {
     trnasform: translateY(0px); } }
-    .top .cloud .rain {
+    .top .cloudrain .rain {
       width: 2px;
       height: 10px;
       position: absolute;
@@ -138,12 +150,12 @@ label {
       -webkit-animation: raindrop 1s infinite linear;
       animation: raindrop 1s infinite linear;
       background-color: #f3f3f3; }
-    .top .cloud .rain2 {
+    .top .cloudrain .rain2 {
       left: 67px;
       bottom: 20px;
       -webkit-animation-delay: -0.4s;
       animation-delay: -0.4s; }
-    .top .cloud .rain3 {
+    .top .cloudrain .rain3 {
       left: 20px;
       bottom: 20px;
       -webkit-animation-delay: -0.7s;
@@ -166,20 +178,34 @@ label {
     -webkit-transform: translateY(50px);
     transform: translateY(50px);
     opacity: 0; } }
+  .top .sun {
+    position: absolute;
+    stroke: rgba(255, 214, 51, 0.4);
+    stroke-width: 15px;
+    stroke-dasharray: 2px;
+    fill: #FFD633;
+    -webkit-animation: clouddrift 4s infinite;
+    animation: clouddrift 4s infinite; }
+  .top .sun2 {
+    stroke-width: 10px; }
   .top .temsvg {
     width: 100%; }
-    .top .temsvg polyline {
+    .top .temsvg polyline, .top .temsvg line {
       fill: none;
       stroke: #f3f3f3;
-      stroke-width: 1px;
+      stroke-width: 2px;
       opacity: 0.2; }
     .top .temsvg text {
-      -webkit-transform: translate(10px, 20px);
-      -ms-transform: translate(10px, 20px);
-      transform: translate(10px, 20px);
+      -webkit-transform: translateY(-22px);
+      -ms-transform: translateY(-22px);
+      transform: translateY(-22px);
       font-size: 12px;
       fill: #f3f3f3;
       opacity: 0; }
+    .top .temsvg text:nth-of-type(7) {
+      -webkit-transform: translateX(-30px) translateY(-22px);
+      -ms-transform: translateX(-30px) translateY(-22px);
+      transform: translateX(-30px) translateY(-22px); }
     .top .temsvg circle {
       fill: #f3f3f3;
       opacity: 0.2; }
@@ -200,16 +226,21 @@ label {
 
 .bottom {
   height: 10px;
+  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
   padding-top: 10px;
   background-color: #f3f3f3;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   border-radius: 0 0 5px 5px;
   overflow: hidden; }
@@ -219,10 +250,11 @@ label {
     opacity: 0;
     position: relative;
     top: 50px;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s; }
     .bottom .dayweather h3 {
       font-size: 8px;
-      padding: 10px 0;
       color: rgba(34, 34, 34, 0.7);
       letter-spacing: 1px;
       font-weight: 400; }
@@ -250,35 +282,57 @@ label {
 
 #switch_night:checked + .top .moon, #switch_night:checked + .top .cloud {
   opacity: 0.5;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s; }
 
-#switch_night:checked + .top .temsvg circle, #switch_night:checked + .top .temsvg polyline, #switch_night:checked + .top .temsvg text {
+#switch_night:checked + .top .temsvg circle, #switch_night:checked + .top .temsvg polyline, #switch_night:checked + .top .temsvg line, #switch_night:checked + .top .temsvg text {
   opacity: 1;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s; }
 
 #switch_night:checked + .top .temsvg polyline {
+  -webkit-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
   transition-delay: 0.5s; }
 
 #switch_night:checked + .top .temsvg text {
+  -webkit-transition-delay: 1s;
+  -o-transition-delay: 1s;
   transition-delay: 1s; }
 
 .dayweather:nth-of-type(1) {
+  -webkit-transition-delay: .15s;
+  -o-transition-delay: .15s;
   transition-delay: .15s; }
 
 .dayweather:nth-of-type(2) {
+  -webkit-transition-delay: .3s;
+  -o-transition-delay: .3s;
   transition-delay: .3s; }
 
 .dayweather:nth-of-type(3) {
+  -webkit-transition-delay: .45s;
+  -o-transition-delay: .45s;
   transition-delay: .45s; }
 
 .dayweather:nth-of-type(4) {
+  -webkit-transition-delay: .6s;
+  -o-transition-delay: .6s;
   transition-delay: .6s; }
 
 .dayweather:nth-of-type(5) {
+  -webkit-transition-delay: .75s;
+  -o-transition-delay: .75s;
   transition-delay: .75s; }
 
 .dayweather:nth-of-type(6) {
+  -webkit-transition-delay: .9s;
+  -o-transition-delay: .9s;
   transition-delay: .9s; }
 
 .dayweather:nth-of-type(7) {
+  -webkit-transition-delay: 1.05s;
+  -o-transition-delay: 1.05s;
   transition-delay: 1.05s; }
